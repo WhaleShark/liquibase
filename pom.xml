@@ -28,9 +28,9 @@
     </issueManagement>
 
     <scm>
-        <connection>scm:git:git@github.com:liquibase/liquibase.git</connection>
-        <url>scm:git:git@github.com:liquibase/liquibase.git</url>
-        <developerConnection>scm:git:git@github.com:liquibase/liquibase.git</developerConnection>
+        <connection>scm:git:git@github.com:WhaleShark/liquibase.git</connection>
+        <url>scm:git:git@github.com:WhaleShark/liquibase.git</url>
+        <developerConnection>scm:git:git@github.com:WhaleShark/liquibase.git</developerConnection>
     </scm>
 
     <developers>
@@ -258,17 +258,12 @@
 
     <distributionManagement>
         <repository>
-            <uniqueVersion>false</uniqueVersion>
-            <id>sonatype-nexus-staging</id>
-            <name>Sonatype Production Repository</name>
-            <url>https://oss.sonatype.org/service/local/staging/deploy/maven2</url>
-
+            <id>releases</id>
+            <url>http://mavenrepo:8081/nexus/content/repositories/releases/</url>
         </repository>
         <snapshotRepository>
-            <uniqueVersion>false</uniqueVersion>
-            <id>sonatype-nexus-snapshots</id>
-            <name>Sontatype Snapshot Repository</name>
-            <url>https://oss.sonatype.org/content/repositories/snapshots</url>
+            <id>snapshots</id>
+            <url>http://mavenrepo:8081/nexus/content/repositories/snapshots/</url>
         </snapshotRepository>
     </distributionManagement>
 
