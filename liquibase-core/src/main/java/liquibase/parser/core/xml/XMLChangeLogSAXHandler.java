@@ -754,6 +754,32 @@ class XMLChangeLogSAXHandler extends DefaultHandler {
             entryFile.mkdirs();
         }
 
+        //BEGIN WSM PATCH: https://liquibase.jira.com/browse/CORE-956
+        markAllForDeletion(tempDir);
+        //END WSM PATCH: https://liquibase.jira.com/browse/CORE-956
+
         return tempDir;
     }
+
+    //BEGIN WSM PATCH: https://liquibase.jira.com/browse/CORE-956
+    private static void markAllForDeletion(File file) {
+        if(file == null) {
+            return;
+        }
+
+        file.deleteOnExit();
+        if(!file.isDirectory()) {
+            return;
+        }
+
+        File[] subfiles = file.listFiles();
+        if(subfiles == null) {
+            return;
+        }
+
+        for(File subfile : subfiles) {
+            markAllForDeletion(subfile);
+        }
+    }
+    //END WSM PATCH: https://liquibase.jira.com/browse/CORE-956
 }
