@@ -68,7 +68,11 @@ public class FormattedSqlChangeLogParser implements ChangeLogParser {
 
             Pattern runOnChangePattern = Pattern.compile(".*runOnChange:(\\w+).*", Pattern.CASE_INSENSITIVE);
             Pattern runAlwaysPattern = Pattern.compile(".*runAlways:(\\w+).*", Pattern.CASE_INSENSITIVE);
-            Pattern contextPattern = Pattern.compile(".*context:(\\w+).*", Pattern.CASE_INSENSITIVE);
+
+            //BEGIN WSM PATCH: https://liquibase.jira.com/browse/CORE-1184
+            Pattern contextPattern = Pattern.compile(".*context:(\\S+).*", Pattern.CASE_INSENSITIVE);
+            //END WSM PATCH: https://liquibase.jira.com/browse/CORE-1184
+
             Pattern runInTransactionPattern = Pattern.compile(".*runInTransaction:(\\w+).*", Pattern.CASE_INSENSITIVE);
             Pattern dbmsPattern = Pattern.compile(".*dbms:(\\w+).*", Pattern.CASE_INSENSITIVE);
             Pattern failOnErrorPattern = Pattern.compile(".*failOnError:(\\w+).*", Pattern.CASE_INSENSITIVE);
